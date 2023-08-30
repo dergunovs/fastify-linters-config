@@ -112,6 +112,7 @@ export default {
     'no-useless-rename': 'error',
     'no-useless-return': 'error',
     'no-var': 'error',
+    'no-var-requires': 'off',
     'no-void': 'error',
     'object-curly-spacing': ['error', 'always'],
     'object-shorthand': 'error',
