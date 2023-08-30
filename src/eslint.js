@@ -142,7 +142,6 @@ export default {
     'import/named': 'error',
     'import/newline-after-import': 'error',
     'import/no-absolute-path': 'error',
-    'import/no-anonymous-default-export': 'error',
     'import/no-cycle': 'error',
     'import/no-empty-named-blocks': 'error',
     'import/no-extraneous-dependencies': 'error',
