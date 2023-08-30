@@ -137,7 +137,6 @@ export default {
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
     yoda: ['error', 'never', { onlyEquality: true }],
 
-    'import/default': 'error',
     'import/exports-last': 'error',
     'import/first': 'error',
     'import/named': 'error',
@@ -186,7 +185,6 @@ export default {
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
-    '@typescript-eslint/no-require-imports': 'error',
     '@typescript-eslint/no-type-alias': [
       'error',
       {
