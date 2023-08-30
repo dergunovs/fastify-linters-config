@@ -137,11 +137,13 @@ export default {
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
     yoda: ['error', 'never', { onlyEquality: true }],
 
+    'import/default': 'off',
     'import/exports-last': 'error',
     'import/first': 'error',
     'import/named': 'error',
     'import/newline-after-import': 'error',
     'import/no-absolute-path': 'error',
+    'import/no-anonymous-default-export': 'off',
     'import/no-cycle': 'error',
     'import/no-empty-named-blocks': 'error',
     'import/no-extraneous-dependencies': 'error',
