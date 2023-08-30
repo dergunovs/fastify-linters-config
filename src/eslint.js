@@ -1,5 +1,5 @@
 export default {
-  env: { 'shared-node-browser': true, es2022: true },
+  env: { 'shared-node-browser': true, node: true, commonjs: true, es2022: true },
 
   ignorePatterns: ['build', 'public', 'node-modules', 'package-lock.json'],
 
@@ -15,14 +15,14 @@ export default {
 
   settings: {
     'import/resolver': {
-      node: { extensions: ['.js', '.ts', '.mjs', '.d.ts'] },
+      node: { extensions: ['.js', '.ts', '.d.ts'] },
     },
     'import/external-module-folders': ['node_modules', 'node_modules/@types'],
   },
 
   overrides: [
     {
-      files: ['*.ts', '*.js'],
+      files: ['*.ts', '*.js', '.d.ts'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
