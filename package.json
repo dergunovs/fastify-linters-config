@@ -1,6 +1,6 @@
 {
   "name": "fastify-linters-config",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "fastify linters config for eslint and prettier",
   "author": "Aleksandr Dergunov <a@dergunov.com> (https://dergunov.com)",
   "main": "./dist/index.umd.js",
