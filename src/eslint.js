@@ -1,40 +1,25 @@
-export default {
-  env: { 'shared-node-browser': true, node: true, commonjs: true, es2022: true },
+function options(globals) {
+  return {
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: { ...globals.node },
+    },
+  };
+}
 
-  ignorePatterns: ['build', 'public', 'node-modules', 'package-lock.json'],
+const ignores = {
+  ignores: ['**/dist/', '**/build/', '**/coverage/', '**/public/', '**/node_modules/', '**/package-lock.json'],
+};
 
-  extends: [
-    'eslint:recommended',
-    'plugin:import-x/recommended',
-    'plugin:import-x/typescript',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-  ],
-
-  plugins: ['import-x', '@typescript-eslint', 'prettier'],
-
+const settings = {
   settings: {
-    'import-x/resolver': { node: { extensions: ['.js', '.ts', '.d.ts'] } },
+    'import-x/resolver': { node: { extensions: ['.js', '.ts', '.mjs', '.d.ts'] } },
     'import-x/external-module-folders': ['node_modules', 'node_modules/@types'],
   },
+};
 
-  overrides: [
-    {
-      files: ['*.ts', '*.js', '.d.ts'],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-        ecmaVersion: 2022,
-        sourceType: 'module',
-        ecmaFeatures: { impliedStrict: true },
-      },
-    },
-  ],
-
-  globals: {
-    NodeJS: true,
-  },
-
+const rules = {
   rules: {
     'array-bracket-spacing': ['error', 'never'],
     'array-callback-return': 'error',
@@ -43,7 +28,7 @@ export default {
     'comma-dangle': ['error', 'only-multiline'],
     'comma-spacing': ['error', { before: false, after: true }],
     'comma-style': ['error', 'last'],
-    complexity: ['error', 12],
+    complexity: ['error', 20],
     curly: ['error', 'multi-line'],
     'default-param-last': 'error',
     'func-name-matching': 'error',
@@ -51,7 +36,10 @@ export default {
     indent: [
       'error',
       2,
-      { SwitchCase: 1, ignoredNodes: ['ConditionalExpression', 'CallExpression', 'ObjectExpression'] },
+      {
+        SwitchCase: 1,
+        ignoredNodes: ['ConditionalExpression', 'CallExpression', 'ObjectExpression'],
+      },
     ],
     'max-depth': ['error', 4],
     'max-nested-callbacks': ['error', 4],
@@ -107,7 +95,6 @@ export default {
     'no-useless-rename': 'error',
     'no-useless-return': 'error',
     'no-var': 'error',
-    'no-var-requires': 'off',
     'no-void': 'error',
     'object-curly-spacing': ['error', 'always'],
     'object-shorthand': 'error',
@@ -116,7 +103,11 @@ export default {
       'error',
       { blankLine: 'always', prev: '*', next: 'return' },
       { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
-      { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
+      {
+        blankLine: 'any',
+        prev: ['const', 'let', 'var'],
+        next: ['const', 'let', 'var'],
+      },
     ],
     'prefer-object-has-own': 'error',
     'prefer-object-spread': 'error',
@@ -129,18 +120,18 @@ export default {
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
     yoda: ['error', 'never', { onlyEquality: true }],
 
-    'import-x/default': 'off',
+    'import-x/default': 'error',
     'import-x/exports-last': 'error',
     'import-x/first': 'error',
     'import-x/named': 'error',
     'import-x/newline-after-import': 'error',
     'import-x/no-absolute-path': 'error',
-    'import-x/no-anonymous-default-export': 'off',
     'import-x/no-cycle': 'error',
     'import-x/no-empty-named-blocks': 'error',
     'import-x/no-extraneous-dependencies': 'error',
-    'import-x/no-named-default': 'error',
     'import-x/no-mutable-exports': 'error',
+    'import-x/no-named-default': 'error',
+    'import-x/no-named-as-default-member': 'off',
     'import-x/no-relative-packages': 'error',
     'import-x/no-self-import': 'error',
     'import-x/no-unassigned-import': ['error', { allow: ['**/*.scss', '**/*.css'] }],
@@ -155,7 +146,6 @@ export default {
       { selector: 'function', format: ['camelCase'] },
       { selector: 'typeLike', format: ['PascalCase'] },
     ],
-
     '@typescript-eslint/array-type': 'error',
     '@typescript-eslint/ban-tslint-comment': 'error',
     '@typescript-eslint/class-literal-property-style': ['error', 'fields'],
@@ -164,20 +154,23 @@ export default {
     '@typescript-eslint/consistent-type-assertions': 'error',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     '@typescript-eslint/default-param-last': 'error',
-    '@typescript-eslint/func-call-spacing': ['error', 'never'],
-    '@typescript-eslint/member-delimiter-style': ['error', { multiline: { delimiter: 'semi' } }],
     '@typescript-eslint/member-ordering': 'error',
     '@typescript-eslint/method-signature-style': 'error',
     '@typescript-eslint/no-confusing-non-null-assertion': 'error',
-    '@typescript-eslint/no-dynamic-delete': 'error',
+    '@typescript-eslint/no-dynamic-delete': 'off',
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-invalid-void-type': 'off',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
+    '@typescript-eslint/no-require-imports': 'error',
     '@typescript-eslint/no-type-alias': [
       'error',
-      { allowAliases: 'in-unions-and-intersections', allowGenerics: 'always', allowConditionalTypes: 'always' },
+      {
+        allowAliases: 'in-unions-and-intersections',
+        allowGenerics: 'always',
+        allowConditionalTypes: 'always',
+      },
     ],
     '@typescript-eslint/no-unsafe-declaration-merging': 'error',
     '@typescript-eslint/no-unused-vars': 'error',
@@ -199,7 +192,7 @@ export default {
         ignoreUrls: true,
       },
     ],
-
-    'prettier/prettier': ['error', { endOfLine: 'auto' }],
   },
 };
+
+export { parser, options, ignores, settings, rules };

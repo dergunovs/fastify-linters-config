@@ -12,7 +12,7 @@ _Легко принимать свободу как должное, если н
 
 Установка сторонних зависимостей:
 
-`npm i @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier prettier --save-dev`
+`npm i @eslint/js eslint eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import-x eslint-plugin-prettier globals typescript-eslint --save-dev`
 
 В package.json добавить команду в секцию script для запуска npm run lint:
 
@@ -20,18 +20,37 @@ _Легко принимать свободу как должное, если н
 
 ## Применение правил
 
-В корневой папке создать файлы: .eslintrc.cjs и prettier.config.cjs.
+В корневой папке создать файлы: eslint.config.js и prettier.config.js.
 
-.eslintrc.cjs:
-
-```
-const { eslint } = require("fastify-linters-config");
-module.exports = eslint;
-```
-
-prettier.config.cjs:
+eslint.config.js:
 
 ```
-const { prettier } = require("fastify-linters-config");
-module.exports = prettier;
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import eslintPluginImportX from 'eslint-plugin-import-x';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import globals from 'globals';
+import { options, ignores, settings, rules } from 'fastify-linters-config';
+
+export default tseslint.config(
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  eslintPluginImportX.flatConfigs.recommended,
+  eslintPluginImportX.flatConfigs.typescript,
+
+  ignores,
+  { ...options(globals), ...settings, ...rules },
+
+  eslintPluginPrettierRecommended
+);
+
+```
+
+prettier.config.js:
+
+```
+import { prettier } from 'fastify-linters-config';
+
+export default prettier;
+
 ```

@@ -1,4 +1,4 @@
-import eslint from './eslint';
-import prettier from './prettier';
+import { options, ignores, settings, rules } from './eslint';
+import { prettier } from './prettier';
 
-export default { eslint, prettier };
+export { options, ignores, settings, rules, prettier };
