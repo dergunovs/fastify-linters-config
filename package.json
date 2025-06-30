@@ -1,6 +1,6 @@
 {
   "name": "fastify-linters-config",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "description": "fastify linters config for eslint and prettier",
   "author": "Aleksandr Dergunov <a@dergunov.com> (https://dergunov.com)",
