@@ -1,6 +1,6 @@
 {
   "name": "fastify-linters-config",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "description": "fastify linters config for eslint and prettier",
   "author": "Aleksandr Dergunov <a@dergunov.com> (https://dergunov.com)",
@@ -12,10 +12,10 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "vite": "7.1.1"
+    "vite": "7.1.2"
   },
   "engines": {
-    "npm": ">=11.3.0",
-    "node": ">=24.2.0"
+    "npm": ">=11.5.1",
+    "node": ">=24.6.0"
   }
 }
