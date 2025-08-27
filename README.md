@@ -29,8 +29,8 @@ import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import pluginSonar from 'eslint-plugin-sonarjs';
-import pluginUnicorn from 'eslint-plugin-unicorn';
+import eslintPluginSonar from 'eslint-plugin-sonarjs';
+import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 import { options, ignores, settings, rules } from 'fastify-linters-config';
 
