@@ -12,11 +12,11 @@ _Легко принимать свободу как должное, если н
 
 Установка сторонних зависимостей:
 
-`npm i @eslint/js eslint eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import-x eslint-plugin-prettier globals typescript-eslint --save-dev`
+`npm i @eslint/js eslint eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import-x eslint-plugin-prettier eslint-plugin-sonarjs eslint-plugin-unicorn globals typescript-eslint --save-dev`
 
 В package.json добавить команду в секцию script для запуска npm run lint:
 
-`"lint": "eslint '**/*.{js,ts}'"`
+`"lint": "eslint **/*.{js,ts}"`
 
 ## Применение правил
 
@@ -29,12 +29,16 @@ import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import eslintPluginImportX from 'eslint-plugin-import-x';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import pluginSonar from 'eslint-plugin-sonarjs';
+import pluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 import { options, ignores, settings, rules } from 'fastify-linters-config';
 
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
+  eslintPluginSonar.configs.recommended,
+  eslintPluginUnicorn.configs.recommended,
   eslintPluginImportX.flatConfigs.recommended,
   eslintPluginImportX.flatConfigs.typescript,
 
@@ -49,8 +53,6 @@ export default tseslint.config(
 prettier.config.js:
 
 ```
-import { prettier } from 'fastify-linters-config';
-
-export default prettier;
+export { prettier as default } from 'vue-linters-config';
 
 ```

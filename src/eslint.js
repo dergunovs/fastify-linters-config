@@ -151,6 +151,19 @@ const rules = {
     'import-x/no-useless-path-segments': 'error',
     'import-x/order': 'error',
 
+    'sonarjs/no-hardcoded-passwords': 'off',
+    'sonarjs/no-duplicated-branches': 'off',
+
+    'unicorn/prevent-abbreviations': 'off',
+    'unicorn/no-null': 'off',
+    'unicorn/filename-case': ['error', { cases: { camelCase: true, pascalCase: true } }],
+    'unicorn/no-array-callback-reference': 'off',
+    'unicorn/no-useless-undefined': 'off',
+    'unicorn/no-array-for-each': 'off',
+    'unicorn/numeric-separators-style': 'off',
+    'unicorn/no-array-reduce': 'off',
+    'unicorn/prefer-string-replace-all': 'off',
+
     '@typescript-eslint/naming-convention': [
       'error',
       { selector: 'variable', format: ['camelCase', 'PascalCase', 'UPPER_CASE', 'snake_case'] },
