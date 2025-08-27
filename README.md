@@ -27,25 +27,25 @@ eslint.config.js:
 ```
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import eslintPluginImportX from 'eslint-plugin-import-x';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import eslintPluginSonar from 'eslint-plugin-sonarjs';
-import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import pluginImportX from 'eslint-plugin-import-x';
+import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import pluginSonar from 'eslint-plugin-sonarjs';
+import pluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 import { options, ignores, settings, rules } from 'fastify-linters-config';
 
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  eslintPluginSonar.configs.recommended,
-  eslintPluginUnicorn.configs.recommended,
-  eslintPluginImportX.flatConfigs.recommended,
-  eslintPluginImportX.flatConfigs.typescript,
+  pluginSonar.configs.recommended,
+  pluginUnicorn.configs.recommended,
+  pluginImportX.flatConfigs.recommended,
+  pluginImportX.flatConfigs.typescript,
 
   ignores,
   { ...options(globals), ...settings, ...rules },
 
-  eslintPluginPrettierRecommended
+  pluginPrettierRecommended
 );
 
 ```
@@ -53,6 +53,6 @@ export default tseslint.config(
 prettier.config.js:
 
 ```
-export { prettier as default } from 'vue-linters-config';
+export { prettier as default } from 'fastify-linters-config';
 
 ```
