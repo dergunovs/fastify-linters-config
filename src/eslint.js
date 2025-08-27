@@ -163,6 +163,9 @@ const rules = {
     'unicorn/numeric-separators-style': 'off',
     'unicorn/no-array-reduce': 'off',
     'unicorn/prefer-string-replace-all': 'off',
+    'unicorn/no-process-exit': 'off',
+    'unicorn/no-anonymous-default-export': 'off',
+    'sonarjs/cognitive-complexity': 'off',
 
     '@typescript-eslint/naming-convention': [
       'error',
