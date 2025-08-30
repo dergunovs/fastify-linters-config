@@ -1,3 +1,22 @@
+function parser(parser, pathToDir) {
+  const dirname = pathToDir || import.meta.dirname;
+
+  return [
+    {
+      languageOptions: {
+        parser,
+        parserOptions: {
+          projectService: {
+            allowDefaultProject: ['eslint.config.js'],
+            maximumDefaultProjectFileMatchCount_THIS_WILL_SLOW_DOWN_LINTING: 1,
+          },
+          tsconfigRootDir: dirname,
+        },
+      },
+    },
+  ];
+}
+
 function options(globals) {
   return {
     languageOptions: {
@@ -153,6 +172,8 @@ const rules = {
 
     'sonarjs/no-hardcoded-passwords': 'off',
     'sonarjs/no-duplicated-branches': 'off',
+    'sonarjs/cognitive-complexity': 'off',
+    'sonarjs/no-misleading-array-reverse': 'off',
 
     'unicorn/prevent-abbreviations': 'off',
     'unicorn/no-null': 'off',
@@ -165,7 +186,6 @@ const rules = {
     'unicorn/prefer-string-replace-all': 'off',
     'unicorn/no-process-exit': 'off',
     'unicorn/no-anonymous-default-export': 'off',
-    'sonarjs/cognitive-complexity': 'off',
 
     '@typescript-eslint/naming-convention': [
       'error',

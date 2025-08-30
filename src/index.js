@@ -1,4 +1,4 @@
-import { options, ignores, settings, rules } from './eslint';
+import { parser, options, ignores, settings, rules } from './eslint';
 import { prettier } from './prettier';
 
-export { options, ignores, settings, rules, prettier };
+export { parser, options, ignores, settings, rules, prettier };
