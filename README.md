@@ -25,9 +25,10 @@ _Легко принимать свободу как должное, если н
 eslint.config.js:
 
 ```
-import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import pluginImportX from 'eslint-plugin-import-x';
 import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
@@ -38,7 +39,7 @@ import { parser, options, ignores, settings, rules } from 'fastify-linters-confi
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-export default tseslint.config(
+export default defineConfig(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   pluginSonar.configs.recommended,
@@ -54,7 +55,6 @@ export default tseslint.config(
 
   pluginPrettierRecommended
 );
-
 
 ```
 
