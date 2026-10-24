@@ -183,11 +183,16 @@ const rules = {
     'unicorn/no-array-callback-reference': 'off',
     'unicorn/no-useless-undefined': 'off',
     'unicorn/no-array-for-each': 'off',
+    'unicorn/name-replacements': 'off',
+    'unicorn/prefer-iterator-to-array': 'off',
     'unicorn/numeric-separators-style': 'off',
     'unicorn/no-array-reduce': 'off',
     'unicorn/prefer-string-replace-all': 'off',
+    'unicorn/prefer-private-class-fields': 'off',
     'unicorn/no-process-exit': 'off',
     'unicorn/no-anonymous-default-export': 'off',
+    'unicorn/no-top-level-side-effects': 'off',
+    'unicorn/prefer-group-by': 'off',
 
     '@typescript-eslint/naming-convention': [
       'error',
@@ -203,7 +208,20 @@ const rules = {
     '@typescript-eslint/consistent-type-assertions': 'error',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     '@typescript-eslint/default-param-last': 'error',
-    '@typescript-eslint/member-ordering': 'error',
+    '@typescript-eslint/member-ordering': [
+      'error',
+      {
+        default: [
+          'private-field',
+          'protected-field',
+          'public-field',
+          'constructor',
+          'private-method',
+          'protected-method',
+          'public-method',
+        ],
+      },
+    ],
     '@typescript-eslint/method-signature-style': 'error',
     '@typescript-eslint/no-confusing-non-null-assertion': 'error',
     '@typescript-eslint/no-dynamic-delete': 'off',
